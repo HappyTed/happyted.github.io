@@ -6,6 +6,8 @@
     <title>Приветственный сайт</title>
     <link rel="stylesheet" href="https://happyted.github.io/my-web-page/styles.css">
 
+    <!-- PUSH SDK -->
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js"></script>
 
@@ -13,6 +15,7 @@
     <link rel="manifest" href="https://happyted.github.io/my-web-page/manifest.json">
 </head>
 <body>
+ 
     <div class="container">
         <h1>Добро пожаловать!</h1>
         <p>Пожалуйста, представьтесь:</p>
@@ -21,5 +24,42 @@
         <p id="greetingMessage"></p>
     </div>
     <script src="https://happyted.github.io/my-web-page/script.js"></script>
+
+
+    <button type="button" id="init_sub" style="height: 100px; padding: 25px">PUSH - подписка</button>
+    
+    <script>
+        setInterval(() => {
+            console.log('counter');
+        }, 5000);
+    
+        window.onload = () => navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            window.WebWorkers = registrations;
+    
+    
+            window.akPush = new AKPush({});
+    
+        });
+    
+        const createByEmail = (email) => {
+            try {
+                window.akPush.initSubscription({ email });
+            }
+            catch (e) {
+                console.error(e);
+            }
+        };
+    
+
+        document.getElementById('init_sub').addEventListener('click', () => {
+            createByEmail(greetUser()+"@altcraft.com");
+        });
+    </script>
+
+
+
+
 </body>
 </html>
+
+

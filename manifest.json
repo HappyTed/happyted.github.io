@@ -1,0 +1,5 @@
+{
+  "permissions": [ "activeTab" ],
+  "name": "https://test.tu",
+  "display": "standalone"
+}

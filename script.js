@@ -3,3 +3,7 @@ function greetUser() {
     const message = name ? `Привет, ${name}!` : 'Пожалуйста, введите ваше имя.';
     document.getElementById('greetingMessage').innerText = message;
 }
+
+function _(){
+
+}

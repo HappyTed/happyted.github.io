@@ -26,33 +26,14 @@
     <script src="https://happyted.github.io/my-web-page/script.js"></script>
 
 
+    <!-- Кнопка подписки -->
     <button type="button" id="init_sub" style="height: 100px; padding: 25px">PUSH - подписка</button>
     
     <script>
-        setInterval(() => {
-            console.log('counter');
-        }, 5000);
-    
-        window.onload = () => navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            window.WebWorkers = registrations;
-    
-    
-            window.akPush = new AKPush({});
-    
-        });
-    
-        const createByEmail = (email) => {
-            try {
-                window.akPush.initSubscription({ email });
-            }
-            catch (e) {
-                console.error(e);
-            }
-        };
-    
-
         document.getElementById('init_sub').addEventListener('click', () => {
-            createByEmail(greetUser()+"@altcraft.com");
+            // createByEmail(greetUser()+"@altcraft.com");
+
+            new AKPush().initSubscription({ email: greetUser()+'_ex@example.com' })
         });
     </script>
 

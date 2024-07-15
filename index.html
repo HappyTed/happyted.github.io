@@ -23,9 +23,12 @@
 
             <!-- Кнопка подписки -->
             <button type="button" id="init_sub">PUSH - подписка</button>
+
             <script>
+                push = new AKPush();
+
                 document.getElementById('init_sub').addEventListener('click', () => {
-                    new AKPush().initSubscription({ email: document.getElementById('nameInput').value.trim()+'_ex@example.com' })
+                    push.initSubscription({ email: document.getElementById('nameInput').value.trim()+'_ex@example.com' })
                 });
             </script>
         </div>

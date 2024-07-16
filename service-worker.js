@@ -5,7 +5,7 @@
 self.addEventListener('push', function(event) {
     console.log('Push message received:', event);
 
-    // Проверяем, есть ли данные в push-сообщении
+    // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
     if (event.data) {
         const data = event.data.json();
         console.log('Push data:', data);
@@ -13,14 +13,46 @@ self.addEventListener('push', function(event) {
         console.log('Push event does not have data.');
     }
 
-    const title = data.title || 'Default title';
+    const title = data.title || data.notification.title || 'Default title';
     const options = {
-        body: data.body || 'Default body',
-        icon: data.icon || 'icon.png',
-        badge: data.badge || 'badge.png'
+        body: data.body || data.notification.body || 'Default body',
+        icon: data.icon || data.notification.icon || 'icon.png',
+        badge: data.badge || data.notification.badge || 'badge.png'
     };
 
-    event.waitUntil(
+    // запись в сервис
+    const response_options = {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        // body: JSON.stringify(data) // Преобразование данных в формат JSON
+        body: event.data.json()
+    };
+
+    // URL сервиса
+    const url = 'https://push-test-lab.qa.altcraft.com:8080/v1/messages/save';
+
+    // Отправка запроса
+    fetch(url, response_options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Разбираем JSON-ответ
+        })
+        .then(data => {
+            console.log('Success:', data); // Обработка данных ответа
+        })
+        .catch(error => {
+            console.error('Error:', error); // Обработка ошибок
+        });
+
+
+    // Предотвращение преждевременного завершения service worker. Правильная остановка и показ пуша
+    event.waitUntil(    
         self.registration.showNotification(title, options)
     );
+
+    
 });

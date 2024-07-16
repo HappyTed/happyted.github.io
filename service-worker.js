@@ -4,20 +4,20 @@
 
 self.addEventListener('push', function(event) {
     console.log('Push message received:', event);
-
+    const push_data = {}
     // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
     if (event.data) {
-        const data = event.data.json();
-        console.log('Push data:', data);
+        push_data = event.data.json();
+        console.log('Push data:', push_data);
     } else {
         console.log('Push event does not have data.');
     }
 
-    const title = data.title || data.notification.title || 'Default title';
+    const title = push_data.title || push_data.notification.title || 'Default title';
     const options = {
-        body: data.body || data.notification.body || 'Default body',
-        icon: data.icon || data.notification.icon || 'icon.png',
-        badge: data.badge || data.notification.badge || 'badge.png'
+        body: push_data.body || push_data.notification.body || 'Default body',
+        icon: push_data.icon || push_data.notification.icon || 'icon.png',
+        badge: push_data.badge || push_data.notification.badge || 'badge.png'
     };
 
     // запись в сервис
@@ -27,7 +27,7 @@ self.addEventListener('push', function(event) {
             'Content-Type': 'application/json' 
         },
         // body: JSON.stringify(data) // Преобразование данных в формат JSON
-        body: event.data.json()
+        body: push_data
     };
 
     // URL сервиса

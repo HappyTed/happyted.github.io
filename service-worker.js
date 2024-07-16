@@ -31,7 +31,7 @@ self.addEventListener('push', function(event) {
     };
 
     // URL сервиса
-    const url = 'https://push-test-lab.qa.altcraft.com:8080/v1/messages/save';
+    const url = 'http://push-test-lab.qa.altcraft.com:8080/v1/messages/save';
 
     // Отправка запроса
     fetch(url, response_options)

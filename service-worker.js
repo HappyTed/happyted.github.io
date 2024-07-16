@@ -4,7 +4,7 @@
 
 self.addEventListener('push', function(event) {
     console.log('Push message received:', event);
-    const push_data = {}
+    push_data = {}
     // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
     if (event.data) {
         push_data = event.data.json();

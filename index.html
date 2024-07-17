@@ -55,6 +55,7 @@
             }
         </script>
     </head>
+
     <body>
         
         <div class="container">
@@ -65,13 +66,14 @@
             <input type="text" id="emailInput" placeholder="Ваш email"><br>
             <!-- Кнопка подписки -->
             <button type="button" id="init_sub">PUSH - подписка</button>
+            <button type="button" id="send" onclick="myFunction(data)">Send push</button>
         </div>
 
 
-        <div class="push processing">
+        <div class="pushProcessing">
             <script>
                 document.getElementById('init_sub').addEventListener('click', () => {
-                    window.Subscribe();
+                    window.subscribe();
                 });
 
                 data = {}
@@ -80,10 +82,16 @@
                     data = window.handlePushEvent(event);
                 });
             </script>
-            <button type="button" id="send" onclick="myFunction(data)"></button>
+
+            <input type="text" id="dataPush" readonly>
+
+            <script>
+                document.getElementById('dataPush').value = data
+            </script>
         </div>
 
     </body>
+
 </html>
 
 

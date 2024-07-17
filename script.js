@@ -43,5 +43,5 @@ function handlePushEvent(event){
     });
 }
 
-window.Subscribe = subscribe;
+window.subscribe = subscribe;
 window.handlePushEvent = handlePushEvent;

@@ -49,32 +49,8 @@ function handlePushEvent(event){
             // body: JSON.stringify(data) // Преобразование данных в формат JSON
             body: push_data
         };
-    
-        // URL сервиса
-        const url = 'http://push-test-lab.qa.altcraft.com:8080/v1/messages/save';
-        
 
-        console.log("Try sending push message in service...")
-        // Отправка запроса
-        fetch(url, response_options)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json(); // Разбираем JSON-ответ
-            })
-            .then(data => {
-                console.log('Success:', data); // Обработка данных ответа
-            })
-            .catch(error => {
-                console.error('Error:', error); // Обработка ошибок
-            });
-    
-    
-        // Предотвращение преждевременного завершения service worker. Правильная остановка и показ пуша
-        event.waitUntil(    
-            self.registration.showNotification(title, options)
-        );
+        return push_data
     });
 }
 

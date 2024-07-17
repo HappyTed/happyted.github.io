@@ -42,7 +42,7 @@ function handlePushEvent(event){
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://push-test-lab.qa.altcraft.com:8080'
+                'Access-Control-Allow-Origin': '*'
             },
             // body: JSON.stringify(data) // Преобразование данных в формат JSON
             body: push_data

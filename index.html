@@ -81,6 +81,7 @@
                 
                 self.addEventListener('push', function(event) {
                     data = window.handlePushEvent(event);
+                    document.getElementById('dataPush').value = JSON.stringify(data)
                 });
             </script>
 

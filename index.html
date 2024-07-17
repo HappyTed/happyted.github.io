@@ -23,22 +23,29 @@
             <h1>Добро пожаловать!</h1>
             <p>Пожалуйста, представьтесь:</p>
             <input type="text" id="nameInput" placeholder="Ваше имя">
-
+            <input type="text" id="lnameInput" placeholder="Ваша Фамилия">
+            <input type="text" id="emailInput" placeholder="Ваш email">
             <!-- Кнопка подписки -->
             <button type="button" id="init_sub">PUSH - подписка</button>
 
             <script>
                 push = new AKPush();
-
+                const e = document.getElementById('emailInput').value.trim()
+                const n = document.getElementById('nameInput').value.trim()
+                const l = document.getElementById('lnameInput').value.trim()
                 document.getElementById('init_sub').addEventListener('click', () => {
-                    push.initSubscription({ email: document.getElementById('nameInput').value.trim()+'_ex@example.com' })
+                    push.initSubscription({ 
+                        email: (e == null || e == "") ? '_ex@example.com': e, 
+                        _fname: (n == null || n == "") ? 'navigator.appName': n,
+                        _lname: (l == null || l == "") ? 'lastname': l
+                    })
                 });
                 
 
                 // Логирование и отправка push сообщения в сервис. Правильное завершение service-worker
 
                 self.addEventListener('push', function(event) {
-                    
+
                     console.log('Push message received:', event);
 
                     push_data = {}

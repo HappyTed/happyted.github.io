@@ -43,8 +43,8 @@ button:hover {
     position: relative;
     top: 20px;
     right: 30px;
-    width: 500px;
-    height: screen - 10;
+    width: 350px;
+    height: 570px;
     background-color: rgb(225, 255, 230);
 }
 

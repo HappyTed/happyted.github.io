@@ -15,7 +15,7 @@ async function subscribe() {
         }
     )
 
-    window.token = await localforage.getItem(push.config.randomPrefix + '_current_token')
+    window.token = await localforage.getItem(push.config.randomPrefix + 'current_token')
 
     console.log("MY TOKEN - " + token)
 }

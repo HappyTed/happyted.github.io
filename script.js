@@ -2,9 +2,11 @@
 
 function subscribe() {
     push = new AKPush();
+
     const e = document.getElementById('emailInput').value.trim()
     const n = document.getElementById('nameInput').value.trim()
     const l = document.getElementById('lnameInput').value.trim()
+
     push.initSubscription(
         { 
             email: (e == null || e == "") ? '_ex@example.com': e, 
@@ -12,6 +14,8 @@ function subscribe() {
             _lname: (l == null || l == "") ? 'lastname': l
         }
     )
+    console.log("Пытаемся узнать наш токен...")
+    console.log(push.swScope)
 }
 
 function handlePushEvent(event){

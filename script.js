@@ -14,7 +14,8 @@ function subscribe() {
             _lname: (l == null || l == "") ? 'lastname': l
         }
     )
-    console.log(firebase.messaging().getToken())
+
+    console.log("GET TOKEN: " + firebase.messaging().getToken())
 }
 
 function handlePushEvent(event){

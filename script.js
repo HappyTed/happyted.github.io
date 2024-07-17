@@ -2,15 +2,15 @@
 
 function subscribe() {
     push = new AKPush();
-    // const e = document.getElementById('emailInput').value.trim()
-    // const n = document.getElementById('nameInput').value.trim()
-    // const l = document.getElementById('lnameInput').value.trim()
+    const e = document.getElementById('emailInput').value.trim()
+    const n = document.getElementById('nameInput').value.trim()
+    const l = document.getElementById('lnameInput').value.trim()
     push.initSubscription(
-        // { 
-        //     email: (e == null || e == "") ? '_ex@example.com': e, 
-        //     _fname: (n == null || n == "") ? navigator.appName : n,
-        //     _lname: (l == null || l == "") ? 'lastname': l
-        // }
+        { 
+            email: (e == null || e == "") ? '_ex@example.com': e, 
+            _fname: (n == null || n == "") ? navigator.appName : n,
+            _lname: (l == null || l == "") ? 'lastname': l
+        }
     )
 }
 

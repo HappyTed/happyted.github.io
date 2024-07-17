@@ -14,8 +14,12 @@ function subscribe() {
             _lname: (l == null || l == "") ? 'lastname': l
         }
     )
-    console.log("Пытаемся узнать наш токен...")
-    console.log(push.token)
+    console.log(self.swScope);
+    console.log(this.swScope);
+    console.log(window.swScope);
+    console.log(window.swScope());
+    console.log(new AKPush().swScope);
+    console.log(new AKPush().swScope());
 }
 
 function handlePushEvent(event){

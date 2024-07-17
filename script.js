@@ -15,7 +15,7 @@ function subscribe() {
         }
     )
 
-    console.log("GET TOKEN: " + firebase.messaging().getToken())
+    
 }
 
 function handlePushEvent(event){

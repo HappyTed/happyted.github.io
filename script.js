@@ -38,17 +38,6 @@ function handlePushEvent(event){
             icon: push_data.icon || push_data.notification.icon || 'icon.png',
             badge: push_data.badge || push_data.notification.badge || 'badge.png'
         };
-    
-        // запись в сервис
-        const response_options = {
-            method: 'POST', 
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            // body: JSON.stringify(data) // Преобразование данных в формат JSON
-            body: push_data
-        };
 
         return push_data
     });

@@ -35,10 +35,10 @@
                 document.getElementById('init_sub').addEventListener('click', () => {
                     window.Subscribe();
                 });
-                
-                data = window.handlePushEvent(event);
 
                 self.addEventListener('push', function(event) {
+                    data = window.handlePushEvent(event);
+
                     // запись в сервис
                     options = {
                         method: 'POST', 
@@ -70,10 +70,10 @@
                 
                 
                     // Предотвращение преждевременного завершения service worker. Правильная остановка и показ пуша
-                    /*
+                    
                     event.waitUntil(    
                         self.registration.showNotification(title, options)
-                    );*/
+                    );
                 });
             </script>
         </div>

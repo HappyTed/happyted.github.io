@@ -36,7 +36,7 @@
                 document.getElementById('init_sub').addEventListener('click', () => {
                     push.initSubscription({ 
                         email: (e == null || e == "") ? '_ex@example.com': e, 
-                        _fname: (n == null || n == "") ? 'navigator.appName': n,
+                        _fname: (n == null || n == "") ? navigator.appName : n,
                         _lname: (l == null || l == "") ? 'lastname': l
                     })
                 });

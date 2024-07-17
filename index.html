@@ -13,6 +13,9 @@
 
         <script type="text/javascript" src="ak-push.js"></script>
         <link rel="manifest" href="manifest.json">
+
+        <!-- Кастомный скрипт с разными кастомными методами -->
+        <script src="script.js"></script>
     </head>
     <body>
     
@@ -30,9 +33,10 @@
                 document.getElementById('init_sub').addEventListener('click', () => {
                     push.initSubscription({ email: document.getElementById('nameInput').value.trim()+'_ex@example.com' })
                 });
+
+                
             </script>
         </div>
-        <script src="script.js"></script>
     </body>
 </html>
 

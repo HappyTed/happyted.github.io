@@ -1,15 +1,4 @@
 // https://happyted.github.io/my-web-page
-document.getElementById('init_sub').addEventListener('click', subscribe);
-                
-self.addEventListener('push', function(event) {
-    data = window.handlePushEvent(event);
-});
-
-intervalId = setInterval( 
-    () => {
-        document.getElementById('subInstanse').textContent = window.token
-    },
-    100)
 
 async function subscribe() {
     push = new AKPush();
@@ -97,3 +86,18 @@ function sendPush(data){
 
 window.subscribe = subscribe;
 window.handlePushEvent = handlePushEvent;
+
+
+window.onload(() => {
+    document.getElementById('init_sub').addEventListener('click', subscribe);
+                
+    self.addEventListener('push', function(event) {
+        data = window.handlePushEvent(event);
+    });
+    
+    intervalId = setInterval( 
+        () => {
+            document.getElementById('subInstanse').textContent = window.token
+        },
+        100)
+});

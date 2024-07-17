@@ -1,5 +1,5 @@
 // https://happyted.github.io/my-web-page
-document.getElementById('init_sub').addEventListener('click', window.subscribe);
+document.getElementById('init_sub').addEventListener('click', subscribe);
                 
 self.addEventListener('push', function(event) {
     data = window.handlePushEvent(event);

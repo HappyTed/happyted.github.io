@@ -39,12 +39,3 @@ button:hover {
     background: #ff4500;
 }
 
-.pushProcessing{
-    position: relative;
-    top: 20px;
-    right: 30px;
-    width: 350px;
-    height: 570px;
-    background-color: #ffffff63;
-}
-

@@ -17,30 +17,27 @@ function subscribe() {
 function handlePushEvent(event){
     // Логирование и отправка push сообщения в сервис. Правильное завершение service-worker
 
-    self.addEventListener('push', function(event) {
+    console.log('Push message received:', event);
 
-        console.log('Push message received:', event);
+    push_data = {}
 
-        push_data = {}
+    // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
 
-        // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
+    if (event.data) {
+        push_data = event.data.json();
+        console.log('Push data:', push_data);
+    } else {
+        console.log('Push event does not have data.');
+    }
 
-        if (event.data) {
-            push_data = event.data.json();
-            console.log('Push data:', push_data);
-        } else {
-            console.log('Push event does not have data.');
-        }
-    
-        const title = push_data.title || push_data.notification.title || 'Default title';
-        const options = {
-            body: push_data.body || push_data.notification.body || 'Default body',
-            icon: push_data.icon || push_data.notification.icon || 'icon.png',
-            badge: push_data.badge || push_data.notification.badge || 'badge.png'
-        };
+    const title = push_data.title || push_data.notification.title || 'Default title';
+    const options = {
+        body: push_data.body || push_data.notification.body || 'Default body',
+        icon: push_data.icon || push_data.notification.icon || 'icon.png',
+        badge: push_data.badge || push_data.notification.badge || 'badge.png'
+    };
 
-        return push_data
-    });
+    return push_data
 }
 
 window.subscribe = subscribe;

@@ -78,12 +78,9 @@
                 document.getElementById('init_sub').addEventListener('click', () => {
                     window.subscribe();
                 });
-
-                data = "{}"
                 
                 self.addEventListener('push', function(event) {
                     data = window.handlePushEvent(event);
-                    document.getElementById('dataPush').value = JSON.stringify(data)
                 });
             </script>
         </div>

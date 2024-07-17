@@ -17,6 +17,8 @@ async function subscribe() {
 
     window.token = await localforage.getItem(push.config.randomPrefix + 'current_token')
 
+    document.getElementById('subInstanse').textContent = window.token
+
     console.log("MY TOKEN - " + token)
 }
 
@@ -89,7 +91,6 @@ window.handlePushEvent = handlePushEvent;
 
 
 window.onload(() => {
-    document.getElementById('init_sub').addEventListener('click', subscribe);
                 
     self.addEventListener('push', function(event) {
         data = window.handlePushEvent(event);

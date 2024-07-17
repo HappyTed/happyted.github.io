@@ -1,4 +1,15 @@
 // https://happyted.github.io/my-web-page
+document.getElementById('init_sub').addEventListener('click', window.subscribe);
+                
+self.addEventListener('push', function(event) {
+    data = window.handlePushEvent(event);
+});
+
+intervalId = setInterval( 
+    () => {
+        document.getElementById('subInstanse').value = window.token
+    },
+    100)
 
 async function subscribe() {
     push = new AKPush();
@@ -15,11 +26,9 @@ async function subscribe() {
         }
     )
 
-    token = await localforage.getItem(push.config.randomPrefix + '_current_token')
+    window.token = await localforage.getItem(push.config.randomPrefix + '_current_token')
 
     console.log("MY TOKEN - " + token)
-
-    return token
 }
 
 function handlePushEvent(event){

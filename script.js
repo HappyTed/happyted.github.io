@@ -15,8 +15,7 @@ function subscribe() {
         }
     )
     console.log("Пытаемся узнать наш токен...")
-    token = firebase.messaging().getToken
-    console.log(token)
+    console.log(push.token)
 }
 
 function handlePushEvent(event){

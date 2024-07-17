@@ -33,8 +33,9 @@
                 const e = document.getElementById('emailInput').value.trim()
                 const n = document.getElementById('nameInput').value.trim()
                 const l = document.getElementById('lnameInput').value.trim()
-                console.log(e + ";" + n + ";" + l + ";");
+                
                 document.getElementById('init_sub').addEventListener('click', () => {
+                    console.log(e + ";" + n + ";" + l + ";");
                     push.initSubscription({ 
                         email: (e == null || e == "") ? '_ex@example.com': e, 
                         _fname: (n == null || n == "") ? navigator.appName : n,

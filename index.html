@@ -72,6 +72,8 @@
 
 
         <div class="pushProcessing">
+            <p id="dataPush">{}</p>
+
             <script>
                 document.getElementById('init_sub').addEventListener('click', () => {
                     window.subscribe();
@@ -83,12 +85,6 @@
                     data = window.handlePushEvent(event);
                     document.getElementById('dataPush').value = JSON.stringify(data)
                 });
-            </script>
-
-            <input type="text" id="dataPush" readonly>
-
-            <script>
-                document.getElementById('dataPush').value = JSON.stringify(data)
             </script>
         </div>
 

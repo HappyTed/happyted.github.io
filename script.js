@@ -7,7 +7,7 @@ self.addEventListener('push', function(event) {
 
 intervalId = setInterval( 
     () => {
-        document.getElementById('subInstanse').value = window.token
+        document.getElementById('subInstanse').textContent = window.token
     },
     100)
 

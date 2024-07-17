@@ -37,8 +37,10 @@
             <!-- <p color="#0000" id="dataPush" ></p> -->
 
             <script>
-                document.getElementById('init_sub').addEventListener('click', () => {
-                    window.subscribe();
+                token = null
+
+                document.getElementById('init_sub').addEventListener('click', async () => {
+                    token = await window.subscribe();
                 });
                 
                 self.addEventListener('push', function(event) {

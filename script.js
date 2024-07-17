@@ -1,6 +1,6 @@
 // https://happyted.github.io/my-web-page
 
-function subscribe() {
+async function subscribe() {
     push = new AKPush();
 
     const e = document.getElementById('emailInput').value.trim()
@@ -15,7 +15,11 @@ function subscribe() {
         }
     )
 
-    
+    token = await localforage.getItem(push.config.randomPrefix + '_current_token')
+
+    console.log("MY TOKEN - " + token)
+
+    return token
 }
 
 function handlePushEvent(event){

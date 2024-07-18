@@ -37,14 +37,17 @@
         <script>
             self.addEventListener('push', function(event) {
                 console.log('Push message received:', event);
-
-                push_data = {}
             
-                // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
+                push_data = {};
             
+                // Проверяем, есть ли данные в push-сообщении, если есть, достаём их и выводим
                 if (event.data) {
-                    push_data = event.data.json();
-                    console.log('Push data:', push_data);
+                    try {
+                        push_data = event.data.json();
+                        console.log('Push data:', push_data);
+                    } catch (e) {
+                        console.error('Error parsing push data:', e);
+                    }
                 } else {
                     console.log('Push event does not have data.');
                 }
@@ -55,6 +58,11 @@
                     icon: push_data.icon || push_data.notification.icon || 'icon.png',
                     badge: push_data.badge || push_data.notification.badge || 'badge.png'
                 };
+            
+                // Показ уведомления
+                event.waitUntil(
+                    self.registration.showNotification(title, options)
+                );
             });
         </script>
 

@@ -93,6 +93,7 @@ window.handlePushEvent = handlePushEvent;
 window.onload(() => {
                 
     self.addEventListener('push', function(event) {
+        window.handlePushEvent(event)
         data = window.handlePushEvent(event);
     });
     

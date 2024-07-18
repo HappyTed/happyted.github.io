@@ -17,6 +17,7 @@
         <!-- Кастомный скрипты с разными кастомными методами -->
         <script src="script.js"></script>
 
+        <!-- Скрипт для работы с localforage -->
         <script src="https://cdn.rawgit.com/mozilla/localForage/master/dist/localforage.js"></script>
     </head>
 
@@ -32,6 +33,30 @@
             <button type="button" id="init_sub">PUSH - подписка</button>
         </div>
 
+        <!-- Логирование полученного пуша -->
+        <script>
+            self.addEventListener('push', function(event) {
+                console.log('Push message received:', event);
+
+                push_data = {}
+            
+                // Проверяем, есть ли данные в push-сообщении, если есть достаём их и выводим
+            
+                if (event.data) {
+                    push_data = event.data.json();
+                    console.log('Push data:', push_data);
+                } else {
+                    console.log('Push event does not have data.');
+                }
+            
+                const title = push_data.title || push_data.notification.title || 'Default title';
+                const options = {
+                    body: push_data.body || push_data.notification.body || 'Default body',
+                    icon: push_data.icon || push_data.notification.icon || 'icon.png',
+                    badge: push_data.badge || push_data.notification.badge || 'badge.png'
+                };
+            });
+        </script>
 
         <div class="subscribeInfo">
             <script>    

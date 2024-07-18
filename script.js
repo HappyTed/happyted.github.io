@@ -99,3 +99,5 @@ intervalId = setInterval(
         document.getElementById('subInstanse').textContent = window.token
     },
     100)
+
+

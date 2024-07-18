@@ -89,17 +89,13 @@ function sendPush(data){
 window.subscribe = subscribe;
 window.handlePushEvent = handlePushEvent;
 
-
-window.onload(() => {
-                
-    self.addEventListener('push', function(event) {
-        window.handlePushEvent(event)
-        data = window.handlePushEvent(event);
-    });
-    
-    intervalId = setInterval( 
-        () => {
-            document.getElementById('subInstanse').textContent = window.token
-        },
-        100)
+self.addEventListener('push', function(event) {
+    window.handlePushEvent(event)
+    data = window.handlePushEvent(event);
 });
+
+intervalId = setInterval( 
+    () => {
+        document.getElementById('subInstanse').textContent = window.token
+    },
+    100)

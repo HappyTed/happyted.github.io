@@ -94,10 +94,6 @@ self.addEventListener('push', function(event) {
     data = window.handlePushEvent(event);
 });
 
-intervalId = setInterval( 
-    () => {
-        document.getElementById('subInstanse').textContent = window.token
-    },
-    100)
+
 
 

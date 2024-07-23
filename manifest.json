@@ -1,6 +1,6 @@
 {
   "permissions": [ "activeTab" ],
-  "name": "PUSH web standalone",
+  "name": "https://happyted.github.io/my-web-page",
   "short_name": "pws",
   "description": "Progressive Web App For get PUSH notification.",
   "icons": [

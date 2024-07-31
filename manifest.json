@@ -1,5 +1,5 @@
 {
   "permissions": [ "activeTab" ],
-  "name": "https://happyted.github.io/my-web-page",
+  "name": "https://happyted.github.io",
   "display": "standalone"
 }

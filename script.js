@@ -1,6 +1,5 @@
 // https://happyted.github.io/my-web-page
 
-
 async function subscribe() {
     push = new AKPush();
 

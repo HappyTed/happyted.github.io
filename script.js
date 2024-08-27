@@ -3,13 +3,7 @@
 async function subscribe() {
     push = new AKPush();
 
-    const e = document.getElementById('emailInput').value.trim()
-
-    push.initSubscription(
-        { 
-            email: (e == null || e == "") ? '_ex@example.com': e
-        }
-    )
+    push.initSubscription({ email: document.getElementById('emailInput').value.trim()+'_ex@example.com' })
 
     window.token = await localforage.getItem(push.config.randomPrefix + 'current_token')
 

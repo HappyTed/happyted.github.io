@@ -12,8 +12,8 @@ async function subscribe() {
     console.log("MY TOKEN - " + token)
 }
 
+// Логирование и отправка push сообщения в сервис. Правильное завершение service-worker
 function handlePushEvent(event){
-    // Логирование и отправка push сообщения в сервис. Правильное завершение service-worker
 
     console.log('Push message received:', event);
 

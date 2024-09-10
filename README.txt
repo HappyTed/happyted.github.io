@@ -1,9 +1,3 @@
-Для использования firebase пушей необходимо подключить на страницах сайта скрипт
-firebase-messaging.js и firebase-app.js актуальной версии:
-
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js"></script>
-
 Файлы ak-push.js и manifest.json необходимо подключить к страницам сайта, на
 которых планируется показ пользователям предложение подписаться на push-оповещения:
 

@@ -1,82 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PUSH-уведомления</title>
-        <link rel="stylesheet" href="styles.css">
 
+<head>
+    <!-- START OF ALTCRAFT PIXEL CODE !-->
+    <script type="text/javascript">
+        !function () { var e = { url: "https://pxl-teodor-grachev.qa.altcraft.com/pixel?k=34FyFph%2BVuzFYrhPh7C10Nk7Jg3MJUl1m%2Fqui6fGQJa6XD9SM9jghQ%3D%3D&s=XZCMwL8NN%2B8%3D", goals: "", value: parseFloat("0"), timeout: parseInt("0"), after_scroll: JSON.parse("false"), auto_load: JSON.parse("true") }, o = function (o, t, n, a) { var d = [].concat(o).map(function (e) { return encodeURIComponent(e) }).join(","), c = encodeURIComponent(String(t || 0)), i = encodeURIComponent(n.matching_mode || ""), r = encodeURIComponent(n.db_id || 0), u = encodeURIComponent(JSON.stringify(n.match || {})), l = encodeURIComponent(JSON.stringify(n.update || {})); setTimeout(function () { (new Image).src = [e.url, "goals=" + d, "value=" + c, "db_id=" + r, "mmode=" + i, "match=" + u, "update=" + l].join("&") }, a) }, t = !1, n = function () { t || (t = !0, e.after_scroll ? document.addEventListener("scroll", function () { (window.pageYOffset || document.documentElement.scrollTop > 0) && o(e.goals, e.value, {}, e.timeout) }, { once: true }) : e.auto_load && o(e.goals, e.value, {}, e.timeout)) }; "complete" === document.readyState || "interactive" === document.readyState ? n() : window.addEventListener("load", n); window.ak_pixel_push = function (e, t, n, a, d, c) { var i = []; Array.isArray(e) ? i = e : i[0] = e, o(i, t, { match: n, update: a, matching_mode: d, db_id: c }, 0) } }();
+    </script>
+    <!-- END OF ALTCRAFT PIXEL CODE !-->
+</head>
 
-        <!-- START OF ALTCRAFT PIXEL CODE !-->
-      <script type="text/javascript">
-      !function(){var e={url:"https://cookiesaver.marketing-platform.devel:27443/pixel?k=KjG2N1TArdnwvxqom9SepPWmEyt4o9Q6QOBd50RFrPxU390x3ZU6SA%3D%3D&s=EzgInXHIYcU%3D",goals:"click",value:parseFloat("1"),timeout:parseInt("0"),after_scroll:JSON.parse("false"),auto_load:JSON.parse("true")},o=function(o,t,n,a){var d=[].concat(o).map(function(e){return encodeURIComponent(e)}).join(","),c=encodeURIComponent(String(t||0)),i=encodeURIComponent(n.matching_mode||""),r=encodeURIComponent(n.db_id||0),u=encodeURIComponent(JSON.stringify(n.match||{})),l=encodeURIComponent(JSON.stringify(n.update||{}));setTimeout(function(){(new Image).src=[e.url,"goals="+d,"value="+c,"db_id="+r,"mmode="+i,"match="+u,"update="+l].join("&")},a)},t=!1,n=function(){t||(t=!0,e.after_scroll?document.addEventListener("scroll",function(){(window.pageYOffset||document.documentElement.scrollTop>0)&&o(e.goals,e.value,{},e.timeout)},{once: true}):e.auto_load&&o(e.goals,e.value,{},e.timeout))};"complete"===document.readyState||"interactive"===document.readyState?n():window.addEventListener("load",n);window.ak_pixel_push=function(e,t,n,a,d,c){var i=[];Array.isArray(e)?i=e:i[0]=e,o(i,t,{match:n,update:a,matching_mode:d,db_id:c},0)}}();
-      </script>
-      <!-- END OF ALTCRAFT PIXEL CODE !-->
+<body>
 
-        <!-- PUSH SDK -->
+    <button type="button" id="button">Кнопка</button>
 
-        <script type="text/javascript" src="ak-push.js"></script>
-        <link rel="manifest" href="manifest.json">
-
-        <!-- Кастомный скрипты с разными кастомными методами -->
-        <script src="script.js"></script>
-
-        <!-- Скрипт для работы с localforage -->
-        <!-- <script src="https://cdn.rawgit.com/mozilla/localForage/master/dist/localforage.js"></script> -->
-    </head>
-
-    <body>
-        
-        <div class="container">
-            <h1>Добро пожаловать!</h1>
-            <p>Пожалуйста, представьтесь:</p>
-            <input type="text" id="emailInput" placeholder="Ваш name"><br>
-            <!-- Кнопка подписки -->
-            <button type="button" id="init_sub">PUSH - подписка</button>
-        </div>
-
-        <!-- Логирование полученного пуша -->
-        <script>
-            self.addEventListener('push', function(event) {
-                console.log('Push message received:', event);
-            
-                push_data = {};
-            
-                // Проверяем, есть ли данные в push-сообщении, если есть, достаём их и выводим
-                if (event.data) {
-                    try {
-                        push_data = event.data.json();
-                        console.log('Push data:', push_data);
-                    } catch (e) {
-                        console.error('Error parsing push data:', e);
-                    }
-                } else {
-                    console.log('Push event does not have data.');
-                }
-            
-                const title = push_data.title || push_data.notification.title || 'Default title';
-                const options = {
-                    body: push_data.body || push_data.notification.body || 'Default body',
-                    icon: push_data.icon || push_data.notification.icon || 'icon.png',
-                    badge: push_data.badge || push_data.notification.badge || 'badge.png'
-                };
-            
-                // Показ уведомления
-                event.waitUntil(
-                    self.registration.showNotification(title, options)
-                );
-            });
-        </script>
-
-        <div class="subscribeInfo">
-            <script>    
-                document.getElementById('init_sub').addEventListener('click', window.subscribe);
-                console.log("ok. update")
-            </script>
-        </div>
-
-    </body>
+</body>
 
 </html>
-
-
